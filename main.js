@@ -34,6 +34,7 @@ let paidOut = salary - atp[n] - amBidrag - taxPaid;
 
 console.log(paidOut); 
 
+
 /* THE FOLLOWING CODE IS NOT WORKING
 function test(salary, fradrag, taxPercent, hoursWorked) {
     if (hoursWorked > 117) {
