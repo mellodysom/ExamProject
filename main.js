@@ -32,35 +32,24 @@ class Electives {
   }
 }
 
-var users = [];
-
-users.push(new User(1, "phbr11ac@student.cbs.dk", "123456"))
-
-
-
-
-/*
-
-
-
 
 var users = [{username: "Philip", password: "Braun", id: 1},{username:"Mellody", password: "Som", id: 2}]
 var count = 0
 
-// Function for adding users
-
-
-
-
-
-  
+// Function for adding users 
 
 adduser.onclick = function () {
-var username = prompt("Username");
-var password = prompt("Password");
-var id = prompt("id");
+  var username = prompt("Username");
+  if (username.includes("@student.cbs.dk")) {
+    var password = prompt("Password");
+    var id = prompt("id");
+    return username, password, id
+  }
+  else {
+    alert("You need a CBS e-mail to use this webpage")
+  }
 
-users.push({username: username, password: password, id: id})
+ users.push({username: username, password: password, id: id})
 }
 
 // Function for checking if user is known
@@ -78,8 +67,9 @@ submit.onclick = function() {
         document.getElementById("password").disabled=true;
     }
     for (let i = 0; i < users.length; i ++) {
-        if (inputPassword == users[i].password && inputUsername == users[i].username) {
-            document.getElementById("LoginResult").innerText = "You have signed in";    
+        if (inputPassword == users[i].password && inputUsername == users[i].username) {  
+            alert('Login is correct')
+            window.location = "./overview.html";
             return true;
         }
     }
@@ -98,7 +88,6 @@ elective1.onclick = function () {
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 
-/*
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
@@ -116,13 +105,3 @@ function myFunction() {
       }
     }
   }
-
-
-
-
-  // FUNCTIONS TO MAKE THE LOGIN FUNCTION WORK
-
-// RANDOMS STUFF FROM ONLINE
-
-document.getElementById('date').innerHTML = new Date().toDateString();
-*/
