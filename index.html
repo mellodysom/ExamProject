@@ -3,10 +3,42 @@
   <head>
     <meta charset="utf-8">
     <title>Exam project v1.0</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
   </head>
   <body>
-      <h2 id = 'date'></h2>
+
+      <h1>Create a new user</h1>
+      <div class="formDiv">
+          <span>First Name:</span>
+          <input type="text" id="first-name">
+      </div>
+  
+      <div class="formDiv">
+          <span>Last Name:</span>
+          <input type="text" id="last-name">
+      </div>
+  
+      <div class="formDiv">
+          <span>Username:</span>
+          <input type="text" id="username">
+      </div>
+  
+      <div class="formDiv">
+          <span>Password:</span>
+          <input type="password" id="password" placeholder="min. 8 Digits">
+      </div>
+  
+      <div class="formDiv">
+          <input type="checkbox" id="terms">
+          <span>I agree to the terms and conditions</span>
+      </div>
+  
+      <div class="formDiv">
+          <input type="button" value="Complete Registration" id="submit-btn"> 
+      </div>
+      <span id="resultSpan"></span>
+      <br>
+      <br>
       <h1>Login function</h1> 
       <p>Type in your password to login to the website</p>
 
@@ -18,8 +50,6 @@
 
       <input type="button" value="Add user" name ="adduser" id="adduser"/>
 
-      <span id="LoginResult"></span>
-      <button onclick="alert('Boom!');">DO NOT PRESS</button>
-    <script src="main.js"></script>
+    <script src="./javascript/main.js"></script>
     </body>
 </html>
