@@ -1,5 +1,3 @@
-var users = [{firstName: "Philip", lastName: "Braun", username: "Philip", password: "Braun", id: 1},{username:"Mellody", password: "Som", id: 2}]
-
 class User {
   constructor(firstName, lastName, username, password) {
       this.firstName = firstName;
@@ -8,6 +6,8 @@ class User {
       this.password = password;
   }
 }
+// These are the hardcoded users
+var users = [{firstName: "Philip", lastName: "Braun", username: "Philip", password: "Braun"},{firstName: "Mellody", lastName: "Som", username:"Mellody", password: "Som", firstName: "Virginia", lastName: "Corcuera", username: "Virginia", password: "Corcuera"}]
 
 // Function for adding users 
 const firstNameUI = document.getElementById('first-name')
@@ -18,14 +18,15 @@ const checkboxUI = document.getElementById('terms')
 const submitBtnUI = document.getElementById('submit-btn')
 
 submitBtnUI.onclick = function () {
-  console.log(users);
   if(checkboxUI.checked) {
     if(firstNameUI.value.length > 0 && lastNameUI.value.length > 0 && usernameUI.value.length > 0 && passwordUI.value.length > 0) {
       if(passwordUI.value.length > 7) { 
       var firstName = firstNameUI.value
       var lastName = lastNameUI.value
-      var username = usernameUI
-      var password = passwordUI
+      var username = usernameUI.value
+      var password = passwordUI.value
+      users.push({firstName: firstName, lastName: lastName, username: username, password: password})
+      console.log(users);
       }
       else {
         document.getElementById('resultSpan').innerText = "Your password is too short"
@@ -40,7 +41,6 @@ submitBtnUI.onclick = function () {
       document.getElementById('resultSpan').innerText = "Username is already in use"
       return false
   }
-  users.push(new User(firstName, lastName, username, password))
   }
 }
 
@@ -56,7 +56,7 @@ adduser.onclick = function () {
     alert("You need a CBS e-mail to use this webpage")
   }
 
- users.push({username: username, password: password, id: id})
+ users.push({firstName: firstname, lastName: lastname, username: username, password: password})
 }
 
 // Function for checking if user is known
@@ -64,17 +64,18 @@ adduser.onclick = function () {
 var count = 0
 
 submit.onclick = function() {
-    var inputUsername = document.getElementById("username").value;
-    var inputPassword = document.getElementById("password").value;
+    var inputUsername = document.getElementById('username1').value;
+    var inputPassword = document.getElementById('password1').value;
+
   
     if (inputPassword.length < 1 || inputUsername.length < 1) {
-        alert("You should input something");
+      document.getElementById('resultSpan').innerText = "You should input something";
         return false;
     }
     if (count == 3) {
         alert("You have used all your tries")
-        document.getElementById("username").disabled=true;
-        document.getElementById("password").disabled=true;
+        usernameUI.disabled=true;
+        passwordUI.disabled=true;
     }
     for (let i = 0; i < users.length; i ++) {
         if (inputPassword == users[i].password && inputUsername == users[i].username) {  
